@@ -21,7 +21,6 @@
   "bugs": "https://github.com/goodeggs/webdriver-sizzle/issues",
   "dependencies": {},
   "devDependencies": {
-    "coffee-script": ">=1.7.x",
     "mocha": "~1.x.x",
     "selenium-webdriver": "~2.39.0",
     "phantomjs": "~1.9.7-1",
@@ -33,10 +32,7 @@
     "selenium-webdriver": ">=2.39.0"
   },
   "scripts": {
-    "build": "coffee --bare --compile --output lib/ src/ && coffee scripts/minify.coffee > lib/sizzle.min.js",
-    "pretest": "npm run-script build",
-    "test": "mocha",
-    "prepublish": "npm run-script build"
+    "test": "mocha"
   },
   "license": "MIT"
 }
