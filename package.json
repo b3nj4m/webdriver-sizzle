@@ -1,15 +1,16 @@
 {
   "name": "webdriver-sizzle",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Locate a selenium-webdriver element by sizzle CSS selector",
-  "author": "Good Eggs <open-source@goodeggs.com>",
+  "author": "Ben Robbins <ben.robbins@gmail.com>",
   "contributors": [
+    "Ben Robbins <ben.robbins@gmail.com>",
     "Adam Hull <adam@hmlad.com>"
   ],
-  "main": "lib/webdriver_sizzle.js",
+  "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/goodeggs/webdriver-sizzle.git"
+    "url": "git://github.com/b3nj4m/webdriver-sizzle.git"
   },
   "keywords": [
     "selenium",
@@ -19,11 +20,13 @@
   ],
   "homepage": "https://github.com/goodeggs/webdriver-sizzle",
   "bugs": "https://github.com/goodeggs/webdriver-sizzle/issues",
-  "dependencies": {},
+  "dependencies": {
+    "q": "~1.0.1",
+    "underscore": "~1.6.0"
+  },
   "devDependencies": {
-    "coffee-script": ">=1.7.x",
     "mocha": "~1.x.x",
-    "selenium-webdriver": "~2.39.0",
+    "selenium-webdriver": "~2.42.1",
     "phantomjs": "~1.9.7-1",
     "jsmin": "~1.0.1",
     "sizzle": "~1.1.0",
@@ -33,10 +36,7 @@
     "selenium-webdriver": ">=2.39.0"
   },
   "scripts": {
-    "build": "coffee --bare --compile --output lib/ src/ && coffee scripts/minify.coffee > lib/sizzle.min.js",
-    "pretest": "npm run-script build",
-    "test": "mocha",
-    "prepublish": "npm run-script build"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "license": "MIT"
 }
