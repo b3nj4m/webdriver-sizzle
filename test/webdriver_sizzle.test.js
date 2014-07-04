@@ -47,9 +47,9 @@ describe('webdriver-sizzle', function() {
       });
 
       describe('that matches no elements', function() {
-        it('throws an error that includes the selector', function(done) {
+        it('should return rejected promise', function(done) {
           $('.does-not-match').then(function(el) {
-            done(new Error('element does not exist'));
+            done(new Error('promise was resolved instead of rejected'));
           },
           function() {
             done();
