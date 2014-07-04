@@ -30,12 +30,15 @@ module.exports = function(driver) {
           if (result && _.isFunction(result.then) && !Q.isPromise(result)) {
             return promise(result);
           }
-          return result;
+          return promisify(result);
         };
       }
     });
 
-    delete newObj.then;
+    //attempt to test for a webelement instance and remove the useless `then` function
+    if (newObj && _.isFunction(newObj.then) && _.isFunction(newObj.getText)) {
+      delete newObj.then;
+    }
 
     return newObj;
   };
