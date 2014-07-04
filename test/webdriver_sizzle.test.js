@@ -38,11 +38,10 @@ describe('webdriver-sizzle', function() {
     });
 
     describe('calling with a CSS selector', function() {
-      it('returns the first matching webdriver element', function(done) {
-        $('.test-el').then(function(el) {
+      it('returns the first matching webdriver element', function() {
+        return $('.test-el').then(function(el) {
           return el.getText().then(function(text) {
             assert.equal(text, "The following text is an excerpt from Finnegan's Wake by James Joyce");
-            done();
           });
         });
       });
@@ -50,21 +49,18 @@ describe('webdriver-sizzle', function() {
       describe('that matches no elements', function() {
         it('throws an error that includes the selector', function(done) {
           $('.does-not-match').then(function(el) {
-            el.getText().then(function() {
-              done(new Error('element does not exist'));
-            },
-            function() {
-              done();
-            });
+            done(new Error('element does not exist'));
+          },
+          function() {
+            done();
           });
         });
       });
     });
     describe('all', function() {
-      it('returns all matching elements', function(done) {
-        $.all('p').then(function(elements) {
+      it('returns all matching elements', function() {
+        return $.all('p').then(function(elements) {
           assert.equal(elements.length, 2);
-          done();
         });
       });
     });

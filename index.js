@@ -27,7 +27,7 @@ module.exports = function(driver) {
       if (_.isFunction(val)) {
         newObj[key] = function() {
           var result = obj[key].apply(this, arguments);
-          if (result && _.isFunction(result.then)) {
+          if (result && _.isFunction(result.then) && !Q.isPromise(result)) {
             return promise(result);
           }
           return result;
@@ -35,13 +35,26 @@ module.exports = function(driver) {
       }
     });
 
-    var defer = Q.defer();
-    defer.resolve(newObj);
-    return defer.promise;
+    delete newObj.then;
+
+    return newObj;
   };
 
   var one = function(selector) {
-    return promisify(driver.findElement(selenium.By.js("var module = {exports: {}};\n" + sizzleCode + "\nvar Sizzle = module.exports;\nreturn (Sizzle(" + (JSON.stringify(selector)) + ") || [])[0];")));
+    var defer = Q.defer();
+    var locator = selenium.By.js("var module = {exports: {}};\n" + sizzleCode + "\nvar Sizzle = module.exports;\nreturn (Sizzle(" + (JSON.stringify(selector)) + ") || [])[0];");
+
+    var exists = driver.isElementPresent(locator);
+    exists.then(function(isPresent) {
+      if (isPresent) {
+        defer.resolve(promisify(driver.findElement(locator)));
+      }
+      else {
+        defer.reject('element not found');
+      }
+    });
+
+    return defer.promise;
   };
   var all = function(selector) {
     return promise(driver.findElements(selenium.By.js("var module = {exports: {}};\n" + sizzleCode + "\nvar Sizzle = module.exports;\nreturn (Sizzle(" + (JSON.stringify(selector)) + ") || []);")));
