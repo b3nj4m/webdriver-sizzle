@@ -10,7 +10,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/b3nj4m/webdriver-sizzle.git"
+    "url": "git://github.com/b3nj4m/webdriver-sizzle"
   },
   "keywords": [
     "selenium",
@@ -18,8 +18,8 @@
     "sizzle",
     "integration-tests"
   ],
-  "homepage": "https://github.com/goodeggs/webdriver-sizzle",
-  "bugs": "https://github.com/goodeggs/webdriver-sizzle/issues",
+  "homepage": "https://b3nj4m.github.io/webdriver-sizzle",
+  "bugs": "https://github.com/b3nj4m/webdriver-sizzle/issues",
   "dependencies": {
     "q": "~1.0.1",
     "underscore": "~1.6.0"
