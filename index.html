@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Webdriver-sizzle : Locate a selenium-webdriver element by sizzle CSS selector">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Webdriver-sizzle</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/b3nj4m/webdriver-sizzle">View on GitHub</a>
+
+          <h1 id="project_title">Webdriver-sizzle</h1>
+          <h2 id="project_tagline">Locate a selenium-webdriver element by sizzle CSS selector</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/b3nj4m/webdriver-sizzle/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/b3nj4m/webdriver-sizzle/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>Locate a <a href="https://npmjs.org/package/selenium-webdriver">selenium-webdriver</a> element by sizzle CSS selector.</p>
+
+<p>Most operations return a <code>Q</code> promise.</p>
+
+<div class="highlight highlight-js"><pre><span class="kd">var</span> <span class="nx">selenium</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'selenium-webdriver'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">sizzle</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'webdriver-sizzle'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">driver</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">webdriver</span><span class="p">.</span><span class="nx">Builder</span><span class="p">().</span><span class="nx">withCapabilities</span><span class="p">(</span><span class="nx">webdriver</span><span class="p">.</span><span class="nx">Capabilities</span><span class="p">.</span><span class="nx">phantomjs</span><span class="p">()).</span><span class="nx">build</span><span class="p">()</span>
+<span class="kd">var</span> <span class="nx">$</span> <span class="o">=</span> <span class="nx">sizzle</span><span class="p">(</span><span class="nx">driver</span><span class="p">);</span>
+
+<span class="c1">// Find the first element with class btn and click it</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'.btn'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//el is a selenium WebElement</span>
+  <span class="nx">el</span><span class="p">.</span><span class="nx">click</span><span class="p">()</span>
+<span class="p">});</span>
+
+<span class="c1">// Count the paragraphs</span>
+<span class="nx">$</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="s1">'p'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">elements</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">elements</span><span class="p">.</span><span class="nx">count</span><span class="p">);</span>
+<span class="p">});</span>
+
+</pre></div>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Webdriver-sizzle maintained by <a href="https://github.com/b3nj4m">b3nj4m</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
