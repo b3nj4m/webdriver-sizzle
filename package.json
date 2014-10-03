@@ -1,6 +1,6 @@
 {
   "name": "webdriver-sizzle-promised",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Locate a selenium-webdriver element by sizzle CSS selector",
   "author": "Ben Robbins <ben.robbins@gmail.com>",
   "contributors": [
