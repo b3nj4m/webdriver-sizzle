@@ -10,7 +10,7 @@ Methods on Selenium `WebElement`s and arrays of `WebElement`s will also return a
 
 ```js
 var selenium = require('selenium-webdriver');
-var sizzle = require('webdriver-sizzle');
+var sizzle = require('webdriver-sizzle-promised');
 var driver = new webdriver.Builder().withCapabilities(webdriver.Capabilities.phantomjs()).build()
 var $ = sizzle(driver);
 

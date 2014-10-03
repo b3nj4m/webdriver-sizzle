@@ -21,7 +21,7 @@ var assertUncaught = function(regex, done) {
   });
 };
 
-describe('webdriver-sizzle', function() {
+describe('webdriver-sizzle-promised', function() {
   var $ = null;
 
   before(function(done) {
