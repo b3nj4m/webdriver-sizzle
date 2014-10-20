@@ -56,7 +56,7 @@ module.exports = function(driver) {
         defer.resolve(promisify(driver.findElement(locator)));
       }
       else {
-        defer.reject(new Error('element not found'));
+        defer.reject(new Error('element not found: "' + selector + '"'));
       }
     });
 
