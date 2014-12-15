@@ -20,7 +20,7 @@
   "homepage": "https://b3nj4m.github.io/webdriver-sizzle",
   "bugs": "https://github.com/b3nj4m/webdriver-sizzle/issues",
   "dependencies": {
-    "q": "~1.0.1",
+    "q": "~1.1.2",
     "underscore": "~1.6.0"
   },
   "devDependencies": {
